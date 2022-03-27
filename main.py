@@ -1,20 +1,22 @@
-from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit
+from PySide2.QtWidgets import QApplication, QMainWindow
+from common.QtCode import QtCode
+from common.QtDesign import QtDesign
+from UI.test import Ui_MainWindow
 
 app = QApplication([])
 
-window = QMainWindow()
-window.resize(500, 400)
-window.move(600, 300)
-window.setWindowTitle("测试")
 
-textEdit = QPlainTextEdit(window)
-textEdit.setPlaceholderText("请输入：")
-textEdit.resize(300, 350)
-textEdit.move(10, 10)
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
 
-button = QPushButton("按钮", window)
-button.move(350, 50)
 
-window.show()
-
-app.exec_()
+if __name__ == '__main__':
+    test = QtCode()
+    # test = QtDesign()
+    # test = MainWindow()
+    # test.show()
+    test.window.show()
+    app.exec_()
